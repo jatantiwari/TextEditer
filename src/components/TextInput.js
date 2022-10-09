@@ -42,15 +42,15 @@ export default function TextInput(props) {
         <div className = "container ">
             
             <div className="mb-2">
-                <h1>{props.heading}</h1>
+                <h2>{props.heading}</h2>
                 <label htmlFor="myBox" className="form-label my-2"></label>
-                <textarea className="form-control" id="myBox" rows="8" value={text} style={{backgroundColor: props.mode==='dark'? 'grey': 'white'}} onChange={handleOnChange} placeholder="Enter Your Text"></textarea>
+                <textarea className="form-control" id="myBox" rows="8" value={text} style={{backgroundColor: props.mode==='dark'? '#bfe8e6': 'white'}} onChange={handleOnChange} placeholder="Enter Your Text"></textarea>
             </div>
-            <button className="btn btn-primary mx-1 my-1"  onClick={handleUpClick}>Convert To Upper Case</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert To Lower Case</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear Text</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleUpClick}>Convert To Upper Case</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert To Lower Case</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear Text</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
 
 
 
@@ -58,7 +58,7 @@ export default function TextInput(props) {
         <div style={{}} className="container my-2">
             <h2>Your text Summary</h2>
             <p className="mx-1 summary">characters = {text.length-[ ]}</p>
-            <p className="mx-1  summary">words = {text.length===0?0:text.split(" ").length}</p>
+            <p className="mx-1  summary">words = {text.length===0?0:text.split(" ").filter((element)=>{return element.length!==0}).length}</p>
             <p className="mx-1  summary">Sentences = {text.length===0?0:text.split(".").length}</p>
             <p className="mx-1  summary">Paragraphs = {text.length===0?0:text.split("\n").length}</p>
             <p className="mx-1  summary">Time to read  this text ={text.length===0?0:text.split(" ").length/125} minutes </p>

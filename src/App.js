@@ -39,7 +39,7 @@ function App() {
     <Navbar title = "TextEditer" mode ={ mode} toggleMode = {toggleMode} />
     <Alert alert={alert}/>
     <div className="container">
-    <TextInput showAlert={showAlert} heading = "Enter the text" mode ={ mode}/>
+    <TextInput showAlert={showAlert} heading = "Text Editer converts Text, Count Text, Removes Extra space" mode ={ mode}/>
     </div>
     <About/>
     <Footer/>
